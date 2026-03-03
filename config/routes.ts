@@ -15,6 +15,18 @@
 			},
 		],
 	},
+		{
+		path: '/bai1',
+		name: 'Bai1',
+		component: './Bai1',
+		icon: 'ArrowsAltOutlined',
+	},
+	{
+		path: '/bai2',
+		name: 'Bai2',
+		component: './Bai2',
+		icon: 'ArrowsAltOutlined',
+	},
 	{
 		path: '/quan-ly-san-pham',
 		name: 'Quản lý sản phẩm',
