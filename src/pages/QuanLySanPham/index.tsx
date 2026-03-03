@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useModel } from 'umi';
 import {
   Card,
@@ -33,8 +33,7 @@ const QuanLySanPham: React.FC = () => {
     searchText,
     setSearchText,
     addProduct,
-    deleteProduct,
-    getFilteredProducts
+    deleteProduct
   } = useModel('quanly_sanpham');
 
   const [form] = Form.useForm();
@@ -95,19 +94,38 @@ const QuanLySanPham: React.FC = () => {
     form.validateFields()
       .then((values) => {
         setLoading(true);
+        
+        // Chuẩn hóa dữ liệu từ form
+        const productData = {
+          name: values.name.trim(),
+          price: Number(values.price) || 0,
+          quantity: Number(values.quantity) || 0
+        };
+        
+        if (!productData.name || productData.price <= 0 || productData.quantity <= 0) {
+          message.error('Vui lòng nhập đầy đủ thông tin hợp lệ!');
+          setLoading(false);
+          return;
+        }
+        
         try {
-          addProduct(values);
+          addProduct(productData);
+          
           message.success('Thêm sản phẩm thành công!');
+          
           form.resetFields();
           setDrawerVisible(false);
+          
+          setSearchText('');
         } catch (error) {
           message.error('Có lỗi xảy ra khi thêm sản phẩm!');
+          console.error('Error adding product:', error);
         } finally {
           setLoading(false);
         }
       })
-      .catch(errorInfo => {
-        console.log('Validate Failed:', errorInfo);
+      .catch(() => {
+        setLoading(false);
       });
   };
 
@@ -120,7 +138,13 @@ const QuanLySanPham: React.FC = () => {
     setSearchText(value);
   };
 
-  const filteredProducts = getFilteredProducts();
+  const filteredProducts = useMemo(() => {
+    if (!searchText.trim()) return products;
+    
+    return products.filter(product =>
+      product.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+  }, [products, searchText]);
 
   return (
     <div style={{ padding: '24px' }}>
@@ -157,12 +181,11 @@ const QuanLySanPham: React.FC = () => {
           columns={columns}
           dataSource={filteredProducts}
           rowKey="id"
-          pagination={{ pageSize: 5 }}
+          pagination={false}
           bordered
         />
       </Card>
 
-      {/* Drawer thêm sản phẩm */}
       <Drawer
         title="Thêm sản phẩm mới"
         placement="right"
@@ -172,8 +195,8 @@ const QuanLySanPham: React.FC = () => {
         }}
         visible={drawerVisible}
         width={520}
-        extra={
-          <Space>
+        footer={
+          <Space style={{ width: '100%', justifyContent: 'flex-end' }}>
             <Button
               onClick={() => {
                 form.resetFields();

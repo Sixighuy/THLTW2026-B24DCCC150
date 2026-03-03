@@ -21,7 +21,18 @@
 		icon: 'shopping',
 		component: './QuanLySanPham',
 	},
-
+	{
+		path: '/quan-ly-don-hang',
+		name: 'Quản lý đơn hàng',
+		icon: 'shoppingCart',
+		component: './QuanLyDonHang',
+	},
+	{
+		path: '/thong-ke',
+		name: 'Thống kê',
+		icon: 'barChart',
+		component: './ThongKe',
+	},
 	///////////////////////////////////
 	// DEFAULT MENU
 	{
