@@ -28,6 +28,12 @@
 		icon: 'ArrowsAltOutlined',
 	},
 	{
+		path: '/thuchanh03',
+		name: 'Thuchanh03',
+		icon: 'ArrowsAltOutlined',
+		component: './Thuchanh03',
+	},
+	{
 		path: '/quan-ly-san-pham',
 		name: 'Quản lý sản phẩm',
 		icon: 'shopping',
