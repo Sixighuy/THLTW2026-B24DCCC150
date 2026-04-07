@@ -16,53 +16,16 @@
 		],
 	},
 		{
-		path: '/bai1',
-		name: 'Bai1',
-		component: './Bai1',
-		icon: 'ArrowsAltOutlined',
-	},
-	{
-		path: '/bai2',
-		name: 'Bai2',
-		component: './Bai2',
-		icon: 'ArrowsAltOutlined',
-	},
-	{
-		path: '/thuchanh03',
-		name: 'Thuchanh03',
-		icon: 'ArrowsAltOutlined',
-		component: './Thuchanh03',
-	},
-	{
-		path: '/thuchanh04',
-		name: 'Thuchanh04',
-		icon: 'ArrowsAltOutlined',
-		component: './Thuchanh04',
-	},
+			path: '/th05',
+			name: 'Quan ly clb',
+			component: './TH05',
+		},
 		{
-		path: '/thuchanh05',
-		name: 'Thuchanh05',
-		icon: 'ArrowsAltOutlined',
-		component: './Thuchanh05',
-	},
-	{
-		path: '/quan-ly-san-pham',
-		name: 'Quản lý sản phẩm',
-		icon: 'shopping',
-		component: './QuanLySanPham',
-	},
-	{
-		path: '/quan-ly-don-hang',
-		name: 'Quản lý đơn hàng',
-		icon: 'shoppingCart',
-		component: './QuanLyDonHang',
-	},
-	{
-		path: '/thong-ke',
-		name: 'Thống kê',
-		icon: 'barChart',
-		component: './ThongKe',
-	},
+			path: '/th06',
+			name: 'Du lich',
+			component: './TH06',
+		},
+
 	///////////////////////////////////
 	// DEFAULT MENU
 	{
