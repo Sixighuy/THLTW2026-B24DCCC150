@@ -25,6 +25,11 @@
 			name: 'Du lich',
 			component: './TH06',
 		},
+		{
+			path: '/th07',
+			name: 'Blog',
+			component: './TH07',
+		},
 
 	///////////////////////////////////
 	// DEFAULT MENU
