@@ -20,11 +20,7 @@
 			name: 'Quan ly clb',
 			component: './TH05',
 		},
-		{
-			path: '/th06',
-			name: 'Du lich',
-			component: './TH06',
-		},
+
 		{
 			path: '/th07',
 			name: 'Blog',
