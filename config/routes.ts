@@ -26,11 +26,7 @@
 			name: 'Blog',
 			component: './TH07',
 		},
-				{
-			path: '/th08',
-			name: 'TH08',
-			component: './TH08',
-		},
+
 				{
 			path: '/th09',
 			name: 'TH09',
